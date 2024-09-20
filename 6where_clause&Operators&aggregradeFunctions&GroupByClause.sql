@@ -21,6 +21,12 @@ VALUES
 
 SELECT * FROM student WHERE (marks>80);
 
+
+-- OPERATORS 
+
+
+SELECT * FROM student WHERE (marks BETWEEN 80 AND 90);
+
 SELECT * FROM student WHERE (city = "mumbai" AND grade = "A");
 
 SELECT * FROM student WHERE (city = "mumbai" OR grade = "A");
@@ -40,3 +46,44 @@ SELECT * FROM student WHERE city IN (TRUE);
 SELECT * FROM student WHERE city IN ("delhi" , "Pune");
 
 SELECT * FROM student WHERE city NOT IN ("delhi" , "Pune");
+
+
+SELECT * FROM student LIMIT 3;
+
+SELECT * FROM student WHERE marks > 80 LIMIT 1;
+
+SELECT * FROM student ORDER BY marks  ASC LIMIT 3 ;
+SELECT * FROM student ORDER BY marks  DESC LIMIT 3 ;
+
+
+
+-- Aggregate function    ---------------------------------------------------------------------------------------------------
+
+SELECT MIN(marks) from student;
+SELECT max(marks) from student;
+
+SELECT count(name) from student;
+
+SELECT sum(marks) from student;
+
+
+
+-- Group by clause ---------------------------------------------------------------------------------------------------
+
+SELECT city
+from student
+GROUP BY city;
+
+
+SELECT city,name, count(rollno) 
+from student
+GROUP BY city ,name;
+
+
+-- practice ques
+--  Q)write query to find avg marks in each city in accending order
+
+SELECT city,  avg(marks)
+from student
+GROUP BY city
+ORDER BY avg(marks) ASC ;
