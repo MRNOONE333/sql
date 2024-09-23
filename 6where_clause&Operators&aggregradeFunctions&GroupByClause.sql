@@ -18,6 +18,20 @@ VALUES
     (105, "Emanuel", 12, "F", "Delhi"),
     (106, "Farah", 82, "B", "Delhi");
 
+CREATE TABLE department(
+	id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+-- FOREIGN KEY
+-- Click on reverse engineer option in database to confirm
+CREATE TABLE teacher(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES department(id)
+);
+
 
 SELECT * FROM student WHERE (marks>80);
 
