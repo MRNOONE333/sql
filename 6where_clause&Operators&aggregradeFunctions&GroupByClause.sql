@@ -111,3 +111,17 @@ FROM student
 GROUP BY city
 HAVING MAX(marks)>90;
 
+-- General Order IN SQL QUERY.
+-- SELECT 
+-- FROM 
+-- WHERE
+-- GROUP BY
+-- HAVING 
+-- ORDER BY
+
+SELECT city 
+FROM student
+WHERE grade ="A"
+GROUP BY city
+HAVING MAX(marks)>=85
+ORDER BY MAX(marks) DESC;
