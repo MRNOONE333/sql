@@ -87,3 +87,27 @@ SELECT city,  avg(marks)
 from student
 GROUP BY city
 ORDER BY avg(marks) ASC ;
+
+-- q2) based on grade find no of students 
+
+SELECT grade,count(rollNo)
+from student
+GROUP BY  grade
+ORDER BY grade;
+
+
+-- Having Clause 
+
+-- No. of students in cities only when max. marks in that city >90.
+
+-- part1
+SELECT city , count(rollno)
+FROM student
+GROUP BY city;
+
+-- part 2
+SELECT city , count(rollno)
+FROM student
+GROUP BY city
+HAVING MAX(marks)>90;
+
