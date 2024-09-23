@@ -125,3 +125,44 @@ WHERE grade ="A"
 GROUP BY city
 HAVING MAX(marks)>=85
 ORDER BY MAX(marks) DESC;
+
+
+-- Update command------------------------------------------------------------------------------------------------------------------
+SET SQL_SAFE_UPDATES = 0;
+
+
+
+UPDATE student
+SET grade = "O"
+WHERE grade = "A";
+
+
+UPDATE student
+SET marks= 55
+WHERE rollno = 105;
+
+UPDATE student
+SET grade = "E"
+WHERE marks BETWEEN 50 AND 60;
+
+SELECT * FROM student;
+
+-- q)increase all marks by +1
+
+UPDATE student
+SET marks = marks+1;
+
+SELECT * FROM student;
+
+
+-- repeat
+UPDATE student
+SET marks= 9
+WHERE rollno = 105;
+
+-- DELETE A row -------------------------------------------------------------------------------
+
+DELETE FROM student 
+WHERE marks<33;
+
+SELECT * FROM student;
