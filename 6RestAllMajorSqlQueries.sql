@@ -223,3 +223,30 @@ ALTER TABLE students
 RENAME TO  student;
 
 -- ------------------------------------------------------------------------------------------------------
+
+
+ALTER TABLE student 
+ADD COLUMN age INT NOT NULL DEFAULT 19;
+
+ALTER TABLE  student
+MODIFY age VARCHAR(2);
+
+INSERT INTO student
+(rollno,name,marks,age)
+VALUES
+(108,"gargie",70,100);
+-- Error Code: 1406. Data too long for column 'age' at row 1
+
+ALTER TABLE student
+CHANGE age Stu_age INT; 
+
+INSERT INTO student
+(rollno,name,marks,Stu_age)
+VALUES
+(108,"gargie",70,100);
+
+ALTER TABLE student
+DROP COLUMN Stu_age;
+
+SELECT * FROM student;
+
