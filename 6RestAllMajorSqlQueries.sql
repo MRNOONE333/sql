@@ -207,3 +207,19 @@ SELECT * FROM teacher;
 UPDATE department
 SET id= 103
 WHERE id =102;
+
+-- ------------------------------------------------------------------------------------------------------
+ 
+ALTER table student
+ADD COLUMN age INT;
+
+ALTER table student
+DROP COLUMN age ;
+
+ALTER TABLE student
+RENAME TO students;
+
+ALTER TABLE students
+RENAME TO  student;
+
+-- ------------------------------------------------------------------------------------------------------
