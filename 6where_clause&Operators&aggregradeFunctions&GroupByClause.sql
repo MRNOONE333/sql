@@ -18,20 +18,6 @@ VALUES
     (105, "Emanuel", 12, "F", "Delhi"),
     (106, "Farah", 82, "B", "Delhi");
 
-CREATE TABLE department(
-	id INT PRIMARY KEY,
-    name VARCHAR(50)
-);
-
--- FOREIGN KEY
--- Click on reverse engineer option in database to confirm
-CREATE TABLE teacher(
-	id INT PRIMARY KEY,
-	name VARCHAR(50),
-    dept_id INT,
-    FOREIGN KEY (dept_id) REFERENCES department(id)
-);
-
 
 SELECT * FROM student WHERE (marks>80);
 
@@ -93,7 +79,9 @@ SELECT city,name, count(rollno)
 from student
 GROUP BY city ,name;
 
-
+SELECT city,count(rollno)
+from student
+GROUP BY city;
 -- practice ques
 --  Q)write query to find avg marks in each city in accending order
 
@@ -125,7 +113,7 @@ FROM student
 GROUP BY city
 HAVING MAX(marks)>90;
 
--- General Order IN SQL QUERY.
+-- General Order IN SQQL QUERY.
 -- SELECT 
 -- FROM 
 -- WHERE
@@ -139,7 +127,6 @@ WHERE grade ="A"
 GROUP BY city
 HAVING MAX(marks)>=85
 ORDER BY MAX(marks) DESC;
-
 
 -- Update command------------------------------------------------------------------------------------------------------------------
 SET SQL_SAFE_UPDATES = 0;
@@ -155,7 +142,7 @@ UPDATE student
 SET marks= 55
 WHERE rollno = 105;
 
-UPDATE student
+UPDATE student 
 SET grade = "E"
 WHERE marks BETWEEN 50 AND 60;
 
@@ -180,3 +167,43 @@ DELETE FROM student
 WHERE marks<33;
 
 SELECT * FROM student;
+
+
+--  ----------------------------------------------
+
+
+CREATE TABLE department(
+	id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+-- FOREIGN KEY
+-- Click on reverse engineer option in database to confirm to see ER diagram
+-- Cascading added. 
+CREATE TABLE teacher(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES department(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
+
+INSERT INTO department
+VALUES 
+(101,"english"),
+(102, "IT");
+
+SELECT * FROM department;
+
+INSERT INTO teacher
+VALUES
+(1,"bob",101),
+(2,"marley",102);
+
+SELECT * FROM teacher;
+
+
+UPDATE department
+SET id= 103
+WHERE id =102;
