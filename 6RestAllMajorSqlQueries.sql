@@ -317,7 +317,20 @@ VALUES
 SELECT * FROM student;
 SELECT * FROM course;
 
+-- SELECT *  
+-- FROM student 
+-- INNER JOIN course
+-- ON student.id= course.id;
+-- or
+
 SELECT *  
-FROM student 
-INNER JOIN course
-ON student.id= course.id; 
+FROM student as s
+INNER JOIN course as c
+ON s.id= c.id;
+
+-- LEFT JOIN
+
+SELECT *  
+FROM student as s
+LEFT JOIN course as c
+ON s.id= c.id;
