@@ -286,3 +286,38 @@ where marks<80;
 
 ALTER TABLE student 
 DROP COLUMN grade;
+
+-- drop previous tables.
+DROP TABLE student;
+-- ----------------------------------------------------------------------------------------------------------------
+-- Joins
+
+CREATE TABLE  student(
+	id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+INSERT INTO student (id, name)
+VALUES
+(101, "adam"),
+(102, "bob"),
+(103, "casey");
+
+CREATE TABLE course(
+    id INT PRIMARY KEY,
+    course VARCHAR(50)
+);
+INSERT INTO course (id, course)
+VALUES
+(102, "english"),
+(105, "math"),
+(103, "science"),
+(101, "computer science");
+
+SELECT * FROM student;
+SELECT * FROM course;
+
+SELECT *  
+FROM student 
+INNER JOIN course
+ON student.id= course.id; 
