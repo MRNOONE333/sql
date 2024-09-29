@@ -447,3 +447,36 @@ FROM student
 WHERE marks>(
 SELECT AVG(marks)FROM student
 );
+
+-- q2- find name of all students with even roll no.
+
+-- without sub query
+SELECT name , rollno
+FROM student
+WHERE rollno%2=0;
+
+-- or
+
+-- hardcode way
+SELECT name 
+FROM student
+WHERE rollno in (102,104,106);
+
+-- sub query .
+SELECT name 
+FROM student
+WHERE rollno in (
+SELECT rollno 
+FROM student
+WHERE rollno%2=0
+);
+
+
+-- Q3- MAX MARKS IN DELHI CITY USING SUBQUERY USING WITH FROM KEYWORD.
+SELECT * 
+FROM student WHERE  city = "delhi";
+
+SELECT MAX(marks) 
+FROM 
+(SELECT * FROM student WHERE  city = "delhi") as temp;
+-- alias is must here Without an alias, SQL wouldn't be able to process the derived table properly.
