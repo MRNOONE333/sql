@@ -369,3 +369,31 @@ RIGHT JOIN course as c
 ON  s.id=c.id
 WHERE s.id IS NULL;
 
+-- SELF JOIN
+CREATE TABLE employee (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    manager_id INT
+);
+
+INSERT INTO employee 
+(id, name, manager_id)
+VALUES
+    (101, "adam", 103),
+    (102, "bob", 104),
+    (103, "CASEY", NULL),
+    (104,"donald",103);
+
+SELECT * from employee;
+
+SELECT * 
+FROM employee as a
+JOIN employee as b
+ON a.id = b.manager_id;
+
+-- or
+
+SELECT a.name as manager, b.name as worker
+FROM employee as a
+JOIN employee as b
+ON a.id = b.manager_id;
