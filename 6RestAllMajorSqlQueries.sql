@@ -353,3 +353,19 @@ SELECT *
 FROM student as s
 RIGHT JOIN course as c
 ON s.id= c.id;
+
+-- left/right excusive joins
+-- LEFT
+SELECT *
+FROM student as s
+LEFT JOIN course as c
+ON  s.id=c.id
+WHERE c.id IS NULL;
+
+-- RIGHT
+SELECT *
+FROM student as s
+RIGHT JOIN course as c
+ON  s.id=c.id
+WHERE s.id IS NULL;
+
