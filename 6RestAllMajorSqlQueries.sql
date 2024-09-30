@@ -480,3 +480,14 @@ SELECT MAX(marks)
 FROM 
 (SELECT * FROM student WHERE  city = "delhi") as temp;
 -- alias is must here Without an alias, SQL wouldn't be able to process the derived table properly.
+
+-- VIEWS ------------------------------------------------------------------------------------------------------------
+CREATE VIEW view1 AS 
+SELECT rollno,name , marks FROM student;
+
+SELECT * FROM view1;
+
+SELECT * FROM view1
+WHERE marks>80;
+
+DROP VIEW view1;
