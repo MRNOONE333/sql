@@ -504,3 +504,18 @@ SELECT order_data->'$.customer' AS customer FROM orders;
 
 SELECT * FROM orders;
 
+-- Transaction ---------------------------------------------------------------------------------------------------
+
+
+SELECT * FROM student;
+SELECT * FROM Student WHERE grade = 'F';
+
+DELETE FROM Student WHERE grade = "F";
+COMMIT;
+
+DELETE FROM Student WHERE grade = "C";
+
+BEGIN;  -- or START TRANSACTION;
+DELETE FROM student WHERE grade = "B";
+
+ROLLBACK;
