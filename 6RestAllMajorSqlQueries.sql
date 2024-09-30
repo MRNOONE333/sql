@@ -491,3 +491,16 @@ SELECT * FROM view1
 WHERE marks>80;
 
 DROP VIEW view1;
+-- JSON in SQL ---------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE orders (
+  id INT PRIMARY KEY,
+  order_data JSON
+);
+
+INSERT INTO orders VALUES (1, '{"customer": "John Doe", "items": [{"name": "Laptop", "price": 1000}, {"name": "Mouse", "price": 50}]}');
+
+SELECT order_data->'$.customer' AS customer FROM orders;
+
+SELECT * FROM orders;
+
